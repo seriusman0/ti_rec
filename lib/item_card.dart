@@ -33,7 +33,7 @@ class ItemCard extends StatelessWidget {
                         fontWeight: FontWeight.w600, fontSize: 16)),
               ),
               Text(
-                "$age years old",
+                "$age days ago",
                 style: GoogleFonts.poppins(),
               )
             ],
