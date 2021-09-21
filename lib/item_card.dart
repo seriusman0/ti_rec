@@ -52,6 +52,7 @@ class ItemCard extends StatelessWidget {
                       color: Colors.white,
                     )),
                     onPressed: () {
+                      print("oke");
                       if (onUpdate != null) onUpdate();
                     }),
               ),
