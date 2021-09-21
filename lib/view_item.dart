@@ -45,7 +45,7 @@ class MainPage extends StatelessWidget {
             Flexible(
               flex: 1,
               child: FloatingActionButton(
-                  child: Icon(Icons.share),
+                  child: Icon(Icons.add),
                   backgroundColor: Colors.blue,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(12),

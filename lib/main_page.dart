@@ -42,23 +42,22 @@ class MainPage extends StatelessWidget {
                         children: <Widget>[Center(child: Text('Loading'))]);
                   }
                 }),
-            Flexible(
-              flex: 1,
-              child: FloatingActionButton(
-                  child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[Icon(Icons.add), Text("Tambah Data")]),
-                  backgroundColor: Colors.blue,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  onPressed: () {
-                    Navigator.of(context).pushNamed('/add');
-                  }),
-            ),
           ]),
         ),
       ]),
+      bottomNavigationBar: Padding(
+          padding: EdgeInsets.all(8.0),
+          child: FloatingActionButton(
+              child: Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[Icon(Icons.add), Text("Tambah Data")]),
+              backgroundColor: Colors.blue,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(12),
+              ),
+              onPressed: () {
+                Navigator.of(context).pushNamed('/add');
+              })),
     );
   }
 }

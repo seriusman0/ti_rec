@@ -1,5 +1,3 @@
-import 'dart:js';
-
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
@@ -13,51 +11,56 @@ class AddItem extends StatelessWidget {
     FirebaseFirestore firestore = FirebaseFirestore.instance;
     CollectionReference items = firestore.collection('items');
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue[300],
-        title: Center(child: Text("TI-REC")),
-      ),
-      body: InteractiveViewer(
-        child: Column(
-          children: <Widget>[
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: TextFormField(
-                controller: nameController,
-                style: TextStyle(fontSize: 18),
-                decoration: InputDecoration(
-                    labelText: 'Item Name',
-                    labelStyle: TextStyle(fontSize: 18),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0))),
+        appBar: AppBar(
+          backgroundColor: Colors.blue[300],
+          title: Center(child: Text("TI-REC")),
+        ),
+        body: InteractiveViewer(
+          child: Column(
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: TextFormField(
+                  controller: nameController,
+                  style: TextStyle(fontSize: 18),
+                  decoration: InputDecoration(
+                      labelText: 'Item Name',
+                      labelStyle: TextStyle(fontSize: 18),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0))),
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: TextFormField(
-                controller: priceController,
-                style: TextStyle(fontSize: 18),
-                keyboardType: TextInputType.number,
-                decoration: InputDecoration(
-                    labelText: 'Price',
-                    labelStyle: TextStyle(fontSize: 18),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0))),
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: TextFormField(
+                  controller: priceController,
+                  style: TextStyle(fontSize: 18),
+                  keyboardType: TextInputType.number,
+                  decoration: InputDecoration(
+                      labelText: 'Price',
+                      labelStyle: TextStyle(fontSize: 18),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0))),
+                ),
               ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: TextFormField(
-                controller: fDateController,
-                style: TextStyle(fontSize: 18),
-                decoration: InputDecoration(
-                    labelText: 'Date Of Buy' + DateTime.now().toString(),
-                    labelStyle: TextStyle(fontSize: 18),
-                    border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10.0))),
+              Padding(
+                padding: const EdgeInsets.all(10),
+                child: TextFormField(
+                  controller: fDateController,
+                  style: TextStyle(fontSize: 18),
+                  decoration: InputDecoration(
+                      labelText: 'Date Of Buy' + DateTime.now().toString(),
+                      labelStyle: TextStyle(fontSize: 18),
+                      border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(10.0))),
+                ),
               ),
-            ),
-            Container(
+            ],
+          ),
+        ),
+        bottomNavigationBar: Padding(
+            padding: EdgeInsets.all(8.0),
+            child: Container(
               margin: EdgeInsets.symmetric(vertical: 20.0),
               height: 60.0,
               width: double.infinity,
@@ -65,6 +68,10 @@ class AddItem extends StatelessWidget {
                   color: Theme.of(context).primaryColor,
                   borderRadius: BorderRadius.circular(30.0)),
               child: TextButton(
+                child: Text(
+                  "Save",
+                  style: TextStyle(color: Colors.white, fontSize: 20.0),
+                ),
                 onPressed: () {
                   items.add({
                     'name': nameController.text ?? 0,
@@ -79,15 +86,7 @@ class AddItem extends StatelessWidget {
                   priceController.text = '';
                   Navigator.pop(context);
                 },
-                child: Text(
-                  "Save",
-                  style: TextStyle(color: Colors.white, fontSize: 20.0),
-                ),
               ),
-            ),
-          ],
-        ),
-      ),
-    );
+            )));
   }
 }

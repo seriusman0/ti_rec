@@ -13,67 +13,60 @@ class ItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: double.infinity,
-      margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
-      padding: const EdgeInsets.all(5),
-      decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: Colors.blue[900])),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              SizedBox(
-                width: MediaQuery.of(context).size.width * 0.5,
-                child: Text(name,
-                    style: GoogleFonts.poppins(
-                        fontWeight: FontWeight.w600, fontSize: 16)),
-              ),
-              Text(
-                "$age days ago",
-                style: GoogleFonts.poppins(),
-              )
-            ],
-          ),
-          Row(
-            children: [
-              SizedBox(
-                height: 40,
-                width: 60,
-                child: RaisedButton(
-                    shape: CircleBorder(),
-                    color: Colors.green[900],
-                    child: Center(
-                        child: Icon(
-                      Icons.arrow_upward,
-                      color: Colors.white,
-                    )),
-                    onPressed: () {
-                      print("oke");
-                      if (onUpdate != null) onUpdate();
-                    }),
-              ),
-              SizedBox(
-                height: 40,
-                width: 60,
-                child: RaisedButton(
-                    shape: CircleBorder(),
-                    color: Colors.red[900],
-                    child: Center(
-                        child: Icon(
-                      Icons.delete,
-                      color: Colors.white,
-                    )),
-                    onPressed: () {
-                      if (onDelete != null) onDelete();
-                    }),
-              )
-            ],
-          )
-        ],
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pushNamed('/update');
+      },
+      child: Container(
+        width: double.infinity,
+        margin: const EdgeInsets.symmetric(horizontal: 15, vertical: 10),
+        padding: const EdgeInsets.all(5),
+        decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(8),
+            border: Border.all(color: Colors.blue[900])),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(
+                  width: MediaQuery.of(context).size.width * 0.5,
+                  child: Text(name,
+                      style: GoogleFonts.poppins(
+                          fontWeight: FontWeight.w600, fontSize: 16)),
+                ),
+                Text(
+                  "$age days ago",
+                  style: GoogleFonts.poppins(),
+                )
+              ],
+            ),
+            Row(
+              children: [
+                SizedBox(
+                  height: 40,
+                  width: 60,
+                ),
+                SizedBox(
+                  height: 40,
+                  width: 60,
+                  child: RaisedButton(
+                      shape: CircleBorder(),
+                      color: Colors.red[900],
+                      child: Center(
+                          child: Icon(
+                        Icons.delete,
+                        color: Colors.white,
+                      )),
+                      onPressed: () {
+                        if (onDelete != null) onDelete();
+                      }),
+                )
+              ],
+            )
+          ],
+        ),
       ),
     );
   }

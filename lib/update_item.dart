@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import 'item.dart';
 
-class MainPage extends StatelessWidget {
+class UpdateItem extends StatelessWidget {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController fDateController = TextEditingController();
   final TextEditingController priceController = TextEditingController();
@@ -111,6 +111,8 @@ class MainPage extends StatelessWidget {
                         nameController.text = '';
                         fDateController.text = '';
                         priceController.text = '';
+
+                        Navigator.pop(context);
                       },
                       child: Text(
                         "Save",
