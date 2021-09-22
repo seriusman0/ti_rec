@@ -56,7 +56,7 @@ class ItemCard extends StatelessWidget {
                       color: Colors.red[900],
                       child: Center(
                           child: Icon(
-                        Icons.delete,
+                        Icons.dangerous,
                         color: Colors.white,
                       )),
                       onPressed: () {
